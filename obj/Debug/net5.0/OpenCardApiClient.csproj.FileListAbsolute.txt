@@ -1,0 +1,16 @@
+C:\Users\Ehsan\source\repos\OpenCardApiClient\bin\Debug\net5.0\OpenCardApiClient.exe
+C:\Users\Ehsan\source\repos\OpenCardApiClient\bin\Debug\net5.0\OpenCardApiClient.deps.json
+C:\Users\Ehsan\source\repos\OpenCardApiClient\bin\Debug\net5.0\OpenCardApiClient.runtimeconfig.json
+C:\Users\Ehsan\source\repos\OpenCardApiClient\bin\Debug\net5.0\OpenCardApiClient.runtimeconfig.dev.json
+C:\Users\Ehsan\source\repos\OpenCardApiClient\bin\Debug\net5.0\OpenCardApiClient.dll
+C:\Users\Ehsan\source\repos\OpenCardApiClient\bin\Debug\net5.0\ref\OpenCardApiClient.dll
+C:\Users\Ehsan\source\repos\OpenCardApiClient\bin\Debug\net5.0\OpenCardApiClient.pdb
+C:\Users\Ehsan\source\repos\OpenCardApiClient\obj\Debug\net5.0\OpenCardApiClient.csproj.AssemblyReference.cache
+C:\Users\Ehsan\source\repos\OpenCardApiClient\obj\Debug\net5.0\OpenCardApiClient.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ehsan\source\repos\OpenCardApiClient\obj\Debug\net5.0\OpenCardApiClient.AssemblyInfoInputs.cache
+C:\Users\Ehsan\source\repos\OpenCardApiClient\obj\Debug\net5.0\OpenCardApiClient.AssemblyInfo.cs
+C:\Users\Ehsan\source\repos\OpenCardApiClient\obj\Debug\net5.0\OpenCardApiClient.csproj.CoreCompileInputs.cache
+C:\Users\Ehsan\source\repos\OpenCardApiClient\obj\Debug\net5.0\OpenCardApiClient.dll
+C:\Users\Ehsan\source\repos\OpenCardApiClient\obj\Debug\net5.0\ref\OpenCardApiClient.dll
+C:\Users\Ehsan\source\repos\OpenCardApiClient\obj\Debug\net5.0\OpenCardApiClient.pdb
+C:\Users\Ehsan\source\repos\OpenCardApiClient\obj\Debug\net5.0\OpenCardApiClient.genruntimeconfig.cache

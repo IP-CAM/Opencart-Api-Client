@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "OpenCardApiClient/1.0.0": {
+        "runtime": {
+          "OpenCardApiClient.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "OpenCardApiClient/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
