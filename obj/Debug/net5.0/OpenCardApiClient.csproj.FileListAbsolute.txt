@@ -14,3 +14,5 @@ C:\Users\Ehsan\source\repos\OpenCardApiClient\obj\Debug\net5.0\OpenCardApiClient
 C:\Users\Ehsan\source\repos\OpenCardApiClient\obj\Debug\net5.0\ref\OpenCardApiClient.dll
 C:\Users\Ehsan\source\repos\OpenCardApiClient\obj\Debug\net5.0\OpenCardApiClient.pdb
 C:\Users\Ehsan\source\repos\OpenCardApiClient\obj\Debug\net5.0\OpenCardApiClient.genruntimeconfig.cache
+C:\Users\Ehsan\source\repos\OpenCardApiClient\bin\Debug\net5.0\Newtonsoft.Json.dll
+C:\Users\Ehsan\source\repos\OpenCardApiClient\obj\Debug\net5.0\OpenCardApiClient.csproj.CopyComplete
