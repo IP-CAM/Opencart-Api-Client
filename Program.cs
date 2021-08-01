@@ -30,7 +30,9 @@ namespace OpenCardApiClient
 
             while (true)
             {
-                await UpdateProductsAsync(http, token);
+                //await UpdateProductsAsync(http, token);
+                //await GetProductsFromHatraApiAsync(http, token);
+                await GetCustomersFromHatraApiAsync(http, token);
 
                 Console.ReadKey();
             }
@@ -45,7 +47,7 @@ namespace OpenCardApiClient
             var route = $"{BASE_URL}index.php?route=api/hatra/updateProduct&token={apiToken}";
             var products = new ProductViewModel[]
             {
-                new ProductViewModel { Id= 28,Price=10000,Quantity=25  },
+                new ProductViewModel { Id= 28,Price=232323,Quantity=2522222  },
                 new ProductViewModel{ Id=12,Price=20000,Quantity=250  },
                 new ProductViewModel{ Id=123,Price=30000,Quantity=2500  },
             };
@@ -75,8 +77,14 @@ namespace OpenCardApiClient
             var route = $"{BASE_URL}index.php?route=api/hatra/getproducts&start=0&limit=10&token={apiToken}";
             var response = await http.GetAsync(route);
             var content = await response.Content.ReadAsStringAsync();
-
             Console.WriteLine("products by hatra api :\n" + JToken.Parse(content).ToString(Formatting.Indented) + "\n\n\n");
+        }
+        private static async Task GetCustomersFromHatraApiAsync(HttpClient http, string apiToken)
+        {
+            var route = $"{BASE_URL}index.php?route=api/hatra/getcustomers&start=0&limit=10&token={apiToken}";
+            var response = await http.GetAsync(route);
+            var content = await response.Content.ReadAsStringAsync();
+            Console.WriteLine("customers by hatra api :\n" + JToken.Parse(content).ToString(Formatting.Indented) + "\n\n\n");
         }
 
         //private static async Task GetProductsAsync(HttpClient http, string apiToken)
