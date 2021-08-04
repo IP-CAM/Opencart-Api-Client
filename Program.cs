@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Mime;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -13,10 +14,10 @@ namespace OpenCardApiClient
 {
     class Program
     {
-        private static string BASE_URL = "https://localhost/";
-        //private static string BASE_URL = "https://lift-store.ir/";
-        private static string key = "d02RIcRfgB3IlbpBcv5zOIvyqiY6krWY2Drq1ZZIeMCbuGkTnux2s2xorPt0aPf8wNNJv8Pq7KlSOiXt7k7xdOXuzlvEP6iaMaPPi6hOJHwuW0D89McNhPIkS5w3SbBLAFTw2DXju3Pp2uV8h6GZ85MBMtEu2W4lavS1WFfCqPgKzeWE0HbWGFOUyzAWeEs4Wqg9s2cpbim9OZTU8XIfBYsPMEwzG6HqBcehFOkFR8lGWUbW7G5vIe5OdCFHinO6";
-        //private static string key ="0Duv2o5u0YydDHTpYTWWWugyONwFsfPYCyDa69HmsBrKRarC86lx8mUaD44eDjykHvLpqOujqR3nXMjDuQgyVVC0yBGqCioDarIG5J05zlFcT3N8P6SYC6Whcx7aRO3pwvNVqmubRj844fUirY8szc1rQobr2Pww65tk2lFyJbWTZvSGTd7lrQGZnbjAb1GiGiOzTseCApaBiNeeB5cSyZMbXxCnXR4bGurBmphufm4MVDoFCE6ZTbDecmA3mtRO";
+        //private static string BASE_URL = "https://localhost/";
+        private static string BASE_URL = "https://lift-store.ir/";
+        //private static string key = "d02RIcRfgB3IlbpBcv5zOIvyqiY6krWY2Drq1ZZIeMCbuGkTnux2s2xorPt0aPf8wNNJv8Pq7KlSOiXt7k7xdOXuzlvEP6iaMaPPi6hOJHwuW0D89McNhPIkS5w3SbBLAFTw2DXju3Pp2uV8h6GZ85MBMtEu2W4lavS1WFfCqPgKzeWE0HbWGFOUyzAWeEs4Wqg9s2cpbim9OZTU8XIfBYsPMEwzG6HqBcehFOkFR8lGWUbW7G5vIe5OdCFHinO6";
+        private static string key = "0Duv2o5u0YydDHTpYTWWWugyONwFsfPYCyDa69HmsBrKRarC86lx8mUaD44eDjykHvLpqOujqR3nXMjDuQgyVVC0yBGqCioDarIG5J05zlFcT3N8P6SYC6Whcx7aRO3pwvNVqmubRj844fUirY8szc1rQobr2Pww65tk2lFyJbWTZvSGTd7lrQGZnbjAb1GiGiOzTseCApaBiNeeB5cSyZMbXxCnXR4bGurBmphufm4MVDoFCE6ZTbDecmA3mtRO";
         static async Task Main(string[] args)
         {
             Console.WriteLine("OpenCart Api Client");
@@ -30,15 +31,38 @@ namespace OpenCardApiClient
 
             while (true)
             {
-                //await UpdateProductsAsync(http, token);
-                //await GetProductsFromHatraApiAsync(http, token);
-                await GetCustomersFromHatraApiAsync(http, token);
 
-                Console.ReadKey();
+                Console.WriteLine($"\n\nSelect Operation:\n1.Get Products\n2.Get Customers\n3.Get Order Statuses\n4.Get Orders\n5.Update Product Price And Quantity\n6.Exit\n");
+                var i = Console.ReadLine();
+                if (int.TryParse(i, out var index))
+                {
+                    switch (index)
+                    {
+                        case 1:
+                            await GetProductsFromHatraApiAsync(http, token);
+                            break;
+                        case 2:
+                            await GetCustomersFromHatraApiAsync(http, token);
+                            break;
+                        case 3:
+                            await GetOrderStatusesFromHatraApiAsync(http, token);
+                            break;
+                        case 4:
+                            await GetOrdersFromHatraApiAsync(http, token);
+                            break;
+                        case 5:
+                            await UpdateProductsAsync(http, token);
+                            break;
+                        case 6:
+                            return;
+                        default:
+                            Console.WriteLine("\nInvalid Operation... Try Again!");
+                            break;
+                    }
+                }
+
+
             }
-            //await GetProductsAsync(http, token);
-            //await GetCustomersAsync(http, token);
-            //Console.ReadKey();
         }
 
 
@@ -86,23 +110,20 @@ namespace OpenCardApiClient
             var content = await response.Content.ReadAsStringAsync();
             Console.WriteLine("customers by hatra api :\n" + JToken.Parse(content).ToString(Formatting.Indented) + "\n\n\n");
         }
-
-        //private static async Task GetProductsAsync(HttpClient http, string apiToken)
-        //{
-        //    var route = $"{BASE_URL}index.php?route=api/cart/products&token={apiToken}";
-        //    var response = await http.GetAsync(route);
-        //    var content = await response.Content.ReadAsStringAsync();
-        //    Console.WriteLine("products :\n" + JsonConvert.SerializeObject(content, Formatting.None) + "\n\n\n");
-        //}
-        //private static async Task GetCustomersAsync(HttpClient http, string apiToken)
-        //{
-        //    var route = $"{BASE_URL}index.php?route=api/customer&token={apiToken}";
-        //    var response = await http.GetAsync(route);
-        //    var content = await response.Content.ReadAsStringAsync();
-
-        //    Console.WriteLine("customers :\n"+content + "\n\n\n");
-        //}
-
+        private static async Task GetOrderStatusesFromHatraApiAsync(HttpClient http, string apiToken)
+        {
+            var route = $"{BASE_URL}index.php?route=api/hatra/getorderstatuses&token={apiToken}";
+            var response = await http.GetAsync(route);
+            var content = await response.Content.ReadAsStringAsync();
+            Console.WriteLine("order statuses by hatra api :\n" + JToken.Parse(content).ToString(Formatting.Indented) + "\n\n\n");
+        }
+        private static async Task GetOrdersFromHatraApiAsync(HttpClient http, string apiToken)
+        {
+            var route = $"{BASE_URL}index.php?route=api/hatra/getorders&start=0&limit=10&status=1&token={apiToken}";
+            var response = await http.GetAsync(route);
+            var content = await response.Content.ReadAsStringAsync();
+            Console.WriteLine("orders by hatra api :\n" + JToken.Parse(content).ToString(Formatting.Indented) + "\n\n\n");
+        }
         public static async Task<string> LoginAndGetTokenAsync(HttpClient http)
         {
             var loginUrl = $"{BASE_URL}index.php?route=api/hatra/login";
@@ -112,7 +133,7 @@ namespace OpenCardApiClient
             var content = await response.Content.ReadAsStringAsync();
             var token = JsonSerializer.Deserialize<LoginResponseModel>(content)?.token;
 
-            Console.WriteLine("token : " + token + "\n\n\n");
+            Console.WriteLine("\nlogged in successfully. token : " + token + "\n");
 
             return token;
         }
