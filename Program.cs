@@ -16,8 +16,8 @@ namespace OpenCardApiClient
     {
         //private static string BASE_URL = "https://localhost/";
         private static string BASE_URL = "https://lift-store.ir/";
-        //private static string key = "d02RIcRfgB3IlbpBcv5zOIvyqiY6krWY2Drq1ZZIeMCbuGkTnux2s2xorPt0aPf8wNNJv8Pq7KlSOiXt7k7xdOXuzlvEP6iaMaPPi6hOJHwuW0D89McNhPIkS5w3SbBLAFTw2DXju3Pp2uV8h6GZ85MBMtEu2W4lavS1WFfCqPgKzeWE0HbWGFOUyzAWeEs4Wqg9s2cpbim9OZTU8XIfBYsPMEwzG6HqBcehFOkFR8lGWUbW7G5vIe5OdCFHinO6";
-        private static string key = "0Duv2o5u0YydDHTpYTWWWugyONwFsfPYCyDa69HmsBrKRarC86lx8mUaD44eDjykHvLpqOujqR3nXMjDuQgyVVC0yBGqCioDarIG5J05zlFcT3N8P6SYC6Whcx7aRO3pwvNVqmubRj844fUirY8szc1rQobr2Pww65tk2lFyJbWTZvSGTd7lrQGZnbjAb1GiGiOzTseCApaBiNeeB5cSyZMbXxCnXR4bGurBmphufm4MVDoFCE6ZTbDecmA3mtRO";
+        //private static string key = "NjXcqVVthcBo1wvqhAaAY7tfZDUmM3tOQ7aOKdPfllsxGp8HLQSG4WTZHbRyLoxV6GziUktVq5gd3ivC2qNpMVnirHlRib5oEDE9FwqSbfx15swQkjTOJLVjhjwOOD3n2OSVjHkssh7mCan5Qg4k5h3Mbl4pN2xvrwHhNl4nToRf8CM8ib9ToLKF6L0muTb5bMHw7mVeYz1XFTiNKm1ejDaZnwnMzbkbNr5x2Sg3uMzOzac3hTQGydJ24In1RX3n";
+        private static string key = "vrNHX91XzHPKrswdgyY70OgHRpFAxFjb68B2ILcCiew8sjJu4GNvdGKn2cgyQFXcqadqrzz8cS77sJOGG8zcdv0pK6ZRalWbeRVPh9IGFcdZelu8jFv3D7qbj9N4m8E06go8Jpzxzb4Ukqu756ElVmH7mqHZuAshMAjux58r7xKG6axRWpwdSwsGomgnMyRHTnP5qbyoqf3x5YRMEhQuN9TWgyCJr0e2tBp7vQmXdQWVu8TiZkUgIbhSxIeBbWmp";
         static async Task Main(string[] args)
         {
             Console.WriteLine("OpenCart Api Client");
@@ -119,7 +119,7 @@ namespace OpenCardApiClient
         }
         private static async Task GetOrdersFromHatraApiAsync(HttpClient http, string apiToken)
         {
-            var route = $"{BASE_URL}index.php?route=api/hatra/getorders&start=0&limit=10&status=1&token={apiToken}";
+            var route = $"{BASE_URL}index.php?route=api/hatra/getorders&start=0&limit=10&token={apiToken}"; /*&status = 1*/
             var response = await http.GetAsync(route);
             var content = await response.Content.ReadAsStringAsync();
             Console.WriteLine("orders by hatra api :\n" + JToken.Parse(content).ToString(Formatting.Indented) + "\n\n\n");

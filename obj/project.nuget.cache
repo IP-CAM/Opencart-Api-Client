@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "HhtdvXo0G1TbpubnM52d2khqFW1YgHnH7A1bp1A0OoxLznP6SG4gfO6eU1lUpofmsKAUmzrgP0t6tkvIp1Lpgw==",
+  "dgSpecHash": "O2xGGTKbfADakinCHE2U5DJe8SjJ9gx5icOBglcemLhbVkrpI6OKJ+f4m3QA9Scn4mQ17EmPXLv+hAipnAXrzg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Ehsan\\source\\repos\\OpenCardApiClient\\OpenCardApiClient.csproj",
+  "projectFilePath": "C:\\Projects\\OpenCartExtension\\OpenCartApiClient\\OpenCardApiClient.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Ehsan\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+    "C:\\Users\\m.mazaheri\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
   ],
   "logs": []
 }
