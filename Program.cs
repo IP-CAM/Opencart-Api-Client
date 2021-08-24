@@ -119,7 +119,7 @@ namespace OpenCardApiClient
         }
         private static async Task GetOrdersFromHatraApiAsync(HttpClient http, string apiToken)
         {
-            var route = $"{BASE_URL}index.php?route=api/hatra/getorders&start=0&limit=10&token={apiToken}"; /*&status = 1*/
+            var route = $"{BASE_URL}index.php?route=api/hatra/getorders&start=0&limit=10&startDate=2021-08-24&endDate=2021-08-30&token={apiToken}"; /*&status = 1*/
             var response = await http.GetAsync(route);
             var content = await response.Content.ReadAsStringAsync();
             Console.WriteLine("orders by hatra api :\n" + JToken.Parse(content).ToString(Formatting.Indented) + "\n\n\n");
